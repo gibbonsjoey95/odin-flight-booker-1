@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+This will be a one way flight booker for users to be able to book flights. This project came from TheOdinProject course. https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker.
