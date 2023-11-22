@@ -1,0 +1,24 @@
+
+<%= form_tag(flights_path, method: :get) do %>
+  <%= label_tag :departure_airport, "Departure Airport" %>
+  <%= select_tag :departure_airport, options_from_collection_for_select(@airports, 'id', 'code'), prompt: "Select Departure Airport" %>
+
+  <%= label_tag :arrival_airport, "Arrival Airport" %>
+  <%= select_tag :arrival_airport, options_from_collection_for_select(@airports, 'id', 'code'), prompt: "Select Arrival Airport" %>
+
+  <%= label_tag :flight_date, "Flight Date" %>
+  <%= select_tag :flight_date, options_for_select(@flight_dates.map { |date| [date.strftime("%B %d, %Y"), date] }), prompt: "Select Flight Date" %>
+
+  <%= submit_tag("Search") %>
+<% end %>
+
+<ul>
+  <% @flights.each do |flight| %>
+    <li>
+      Departure Airport: <%= flight.departure_airport.code %><br>
+      Arrival Airport: <%= flight.arrival_airport.code %><br>
+      Start Datetime: <%= flight.start_datetime %><br>
+      Flight Duration: <%= flight.flight_duration %> hours
+    </li>
+  <% end %>
+</ul>
